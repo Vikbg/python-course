@@ -1,7 +1,3 @@
-import sys
-import argparse
-
-from colorama import init
 from os import name as osname, system as wsys
 from typing import TypeVar, Optional, Callable, Union
 
@@ -43,3 +39,29 @@ def clear_screen():
         wsys('cls')
     else:
         print("\033[H\033[J", end="")
+
+def user_await():
+    input("Please press Enter...")
+
+def test_lesson_print():
+    clear_screen()
+    print("Ok today you will learn your fist thing in python")
+    print("Show somthing on the screen!\n")
+    user_await()
+    user_input = input_value(prompt="To do this, you just need to type print(), and something in it between commas \
+                             like print(\"Hello, World!\")", cast=str)
+    if user_input:
+        if user_input.strip().lower() == "print(\"Hello, World!\")".strip().lower():
+            print("Congratualation !")
+            
+def test_lesson_types():
+    clear_screen()
+    print("Today you will learn th python types.")
+    user_await()
+    print("In Python, there's lot of types but the most commons are str, int, float and bool.")
+    user_await()
+    print("The int type is for integers so signed complete numbers like -100, -45, 0, 3, 4566")
+    
+    
+if __name__ == "__main__":
+    test_lesson_print()
