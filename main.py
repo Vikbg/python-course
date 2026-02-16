@@ -1,6 +1,8 @@
 import sys
 import argparse
 
+from colorama import init
+from os import name as osname, system as wsys
 from typing import TypeVar, Optional, Callable, Union
 
 T = TypeVar("T")
@@ -36,3 +38,8 @@ def input_value(
                 continue
         return value
     
+def clear_screen():
+    if osname == 'nt':
+        wsys('cls')
+    else:
+        print("\033[H\033[J", end="")
